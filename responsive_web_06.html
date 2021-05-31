@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>반응형6</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		body {background-color: #FFFF;}
+		#wrap {width: 1200px; margin: 0 auto;}
+		.header {width: 100%; height: 150px; background: #9575cd;}
+		.section {width: 100%; height: 150px; background: #B22222}
+		.aside {float: left; width: 33.4%; height: 400px; background: #7e57c2;}
+		.article1 {float: left; width: 66.6%; height: 200px; background: #673ab7;}
+		.article2 {float: left; width: 66.6%; height: 200px; background: #FF0000;}
+		.article3 {float: left; width: 1200px; height: 250px; background: #DC143C;}
+		.article3 > .div1 {width: 400px;float: left; height: 250px;background-color: #A52A2A}
+		.article3 > .div2 {width: 400px;float: left; height: 250px;background: #800000}
+		.article3 > .div3 {width: 400px;float: left; height: 250px;background: #8B0000}
+		.article4 {padding: 0; overflow: hidden; float: left; width: 1200px; height: 250px; background: #DC143C;}
+		.article4 > div {margin: 100px; padding: 0; width: 15%; height: 170px; margin: 1%; border-radius: 5%; float: left; background: #FFFde7;}
+		.footer {clear: both; width: 100%; height: 150px; background: #5e35b1;}
+		/*0~1200px 일 경우*/
+		@media (max-width: 1230px) {
+			#wrap {width: 100%;}
+			.article3 {width: 100%;}
+			.article3 > .div1 {width: 50%;}
+			.article3 > .div2 {display: none;}
+			.article3 > .div3 {width: 50%;}
+			.article4 {width: 100%;}
+			.article4 > div {width: 30%;}
+			.article4 > div:nth-child(3n) {display: none;}
+		}
+		/*0~850px일 경우*/
+		@media (max-width: 850px) {
+			#wrap {width: 100%;}
+			.article4 {width: 100%; height: 250px;}
+			.article3 > .div1 {width: 100%; height: 125px;}
+			.article3 > .div3 {width: 100%; height: 125px;}
+		}
+		/*0~500px일 경우*/
+		@media (max-width: 500px) {
+			#wrap {width: 100%;}
+			.aside {width: 100%; height: 100px;}
+			.article1 {width: 100%; height: 200px;}
+			.article2 {width: 100%; height: 200px;}
+			.article4 > div 
+
+		}
+	</style>
+</head>
+<body>
+	<div id = "wrap">
+		<header class="header"></header>
+		<section class="section"></section>
+		<aside class="aside"></aside>
+		<article class="article1"></article>
+		<article class="article2"></article>
+		<article class="article3">
+			<div class="div1"></div>
+			<div class="div2"></div>
+			<div class="div3"></div>
+		</article>
+		<article class="article4">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</article>
+		<footer class="footer"></footer>
+
+	</div>
+</body>
+</html>

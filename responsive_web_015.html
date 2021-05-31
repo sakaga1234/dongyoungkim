@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>반응형5</title>
+	<style>
+		 /*margin = 여백*/
+		*{margin: 0; padding: 0;}
+		body {background-color: #FFFde7;}
+		#wrap {width: 1200px; margin: 0 auto;}
+		header {width: 100%; height: 100px; background: #DC143C}
+		article {width: 100%; height: 300px;background: #B22222}
+		section {overflow: hidden; padding: 5%; width: 90%; background-color: #8B0000}
+		section > div {width: 18%; margin: 1%; float: left; height: 170px; border-radius: 5%; background-color: #A52A2A}
+		footer {width: 100%; height: 100px; background: #800000}
+
+		/*0~1200 px 일 경우*/
+		@media (max-width : 1230px) {
+			#wrap {width: 100%;}
+			section > div {width: 20%;}
+			section > div:nth-child(5n) {display: none;}
+		}
+		/*0~750px 일 경우*/
+		@media (max-width: 770px) {
+			section > div {width: 25%;}
+			section > div:nth-child(5) {display: block;}
+		}
+		/*0~500 일 경우*/
+		@media (max-width: 520px) {
+			section > div {width: 45%;}
+			section > div:nth-child(5n) {display: block;}
+		}
+	</style>
+</head>
+<body>
+	<div id = "wrap">
+		<header></header>
+		<article></article>
+		<section>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+		<footer></footer>
+	</div>
+</body>
+</html>
