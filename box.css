@@ -1,0 +1,47 @@
+* {
+    /*전체 초기화*/
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: darkslategray;
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    height: 100vh;
+}
+.btn  {
+    background: none;
+    border : 2px solid white;
+    font-size: 30px;
+    padding: 20px 40px;
+    width: 250px;
+    cursor: pointer;
+    position: relative;
+}
+.btn-swap span {
+    position: absolute; /*Sold out이 버튼 바깥쪽으로 날라가버리기 때문에 btn에 포지션 값을 또 넣어줌 */
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    width: 100%;
+    opacity: 0; /*투명도 조절*/
+    transition: opacity 0.5s; /* 0.5초에 걸쳐 opacity를 변화시켜준다. */ 
+}
+.btn-swap:hover span {
+    opacity: 1;
+}
+.btn-swap::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: tomato;
+    transition: width 0.5s;  /* 0.5초에 걸쳐 width 값을 변화시켜준다. */ 
+}
+.btn-swap:hover::before{
+    width: 100%;
+}
