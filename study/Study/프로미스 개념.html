@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //프로미스 오브젝트를 만든 것.
+        //새로운 프로미스가 만들어 질 때는 엑세큐터 라는 함수가 바로 실행이 되니까 조심
+        const promise = new Promise((resolve, reject) => {
+            console.log('프로미스 오브젝트 완성');
+            setTimeout(()=> {
+                //성공적으로 불러와졌다면 resolve를 불러온다.
+                resolve('ellie');
+                // reject(new Error('오류발생'));
+            },2000);
+        })
+        promise.then((result)=>{
+            console.log(result);
+        }).catch((error)=>{
+            console.error(error);
+        }).finally(()=>{
+            console.log('finally');
+        })
+        //프로미스 연결법
+        const fetchNumber = new Promise((resolve,reject)=>{
+            setTimeout(()=>resolve(1),1000);
+        }).then(num => num * 2)
+        .then(num=> num *3)
+        .then(num => {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>resolve(num - 1),1000);
+            })
+        })
+        .then(num=>console.log(num));
+
+
+        const getHen=()=> 
+            new Promise((resolve,reject)=>{
+                setTimeout(()=>resolve('닭'),1000)
+            })
+        const getEgg=hen =>
+            new Promise((resolve,reject)=> {
+                setTimeout(()=>resolve(`${hen}=>달걀`),1000)
+            })
+        const cook = egg => 
+            new Promise((resolve,reject)=> {
+                setTimeout(()=>resolve(`${egg}=>치킨`),1000)
+            })
+        getHen()
+        .then(hen => getEgg(hen))
+        .then(egg => cook(egg))
+        .then(meal => console.log(meal));
+    </script>
+</body>
+</html>

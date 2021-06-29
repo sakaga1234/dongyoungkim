@@ -1,0 +1,63 @@
+<!-- // console.log('1');
+// setTimeout(() => console.log('2'),1000);
+// console.log('3');
+
+// function printImmediately(print) {
+//     print();
+// }
+// printImmediately(() => console.log('hello'));
+
+// function printWithDelay(print, timeout) {
+//     setTimeout(print, timeout);
+// }
+// printWithDelay(() => console.log('async callback'),2000); -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class UserStorage {
+    loginUser(id, password) {
+        return new Promise((res,req)=>{
+            setTimeout(() => {
+            if(
+                (id === 'ellie' && password === 'dream') ||
+                (id === 'coder' && password === 'academy')
+            ) {
+                res(id);
+            } else {
+                req(new Error('not found'));
+            }
+            }, 2000)
+        })       
+    }
+    getRoles(user) {
+        return new Promise((res,req) => {
+            setTimeout(() => {
+            if(user === 'ellie') {
+                res({name: 'ellie', role: 'admin'});
+            } else {
+                req(new Error('no access'));
+            }
+            }, 1000);
+        })
+    }
+}
+
+const userStorage = new UserStorage();
+const id = prompt('enter your id');
+const password = prompt('enter your password');
+userStorage.loginUser(id,password)
+.then(userStorage.getRoles)
+.then(user => alert(`Hello ${user.name}, you have  a ${user.role}`))
+.catch(error=>console.log(error));
+
+    </script>
+</body>
+</html>
